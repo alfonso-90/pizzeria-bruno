@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizzeria Bruno - Tradizione e Gusto</title>
-    <!-- Google Fonts per un tocco rustico ed elegante -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Playfair+Display:ital,wght=0,400..900;1,400..900&family=Poppins:wght=300;400;600&display=swap" rel="stylesheet">
@@ -58,7 +57,7 @@
             color: var(--colore-secondario);
         }
 
-        /* Bottone Hamburger */
+        /* Bottone Hamburger - CORRETTO CON Z-INDEX SUPERIORE */
         .hamburger {
             display: flex;
             flex-direction: column;
@@ -68,7 +67,7 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 1002; /* Messo a 1002 per stare SOPRA il menu overlay */
         }
 
         .hamburger .line {
@@ -91,7 +90,7 @@
             justify-content: center;
             align-items: center;
             transition: right 0.4s ease;
-            z-index: 1000;
+            z-index: 1001; /* Messo a 1001 */
         }
 
         .nav-menu.active {
@@ -262,51 +261,12 @@
             margin-top: 5px;
         }
 
-        /* --- PRENOTAZIONI --- */
+        /* --- PRENOTAZIONI CON CALENDLY --- */
         .booking-section {
             background-color: #f4edd9;
             border-radius: 12px;
             padding: 40px;
             border: 1px solid #e2d2b3;
-        }
-
-        .booking-form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .form-group label {
-            margin-bottom: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .form-group input, .form-group select {
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-family: var(--font-testo);
-            background-color: var(--colore-chiaro);
-        }
-
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--colore-primario);
-        }
-
-        .booking-form .btn-submit {
-            grid-column: 1 / -1;
-            justify-self: center;
-            margin-top: 15px;
-            border: none;
-            cursor: pointer;
         }
 
         /* --- CONTATTI --- */
@@ -364,7 +324,6 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <header>
         <div class="logo">Pizzeria <span>Bruno</span></div>
         <button class="hamburger" aria-label="Menu">
@@ -374,7 +333,6 @@
         </button>
     </header>
 
-    <!-- MENU OVERLAY -->
     <nav class="nav-menu">
         <ul>
             <li><a href="#hero" class="menu-link">Home</a></li>
@@ -385,20 +343,17 @@
         </ul>
     </nav>
 
-    <!-- HERO SECTION -->
     <section id="hero" class="hero" style="max-width: 100%; padding: 0;">
         <h1>Pizzeria Bruno</h1>
-        <p>Il calore del legno, la tradizione nel piatto</p>
+        <p>Il calore del legno, la traditione nel piatto</p>
         <a href="#prenotazioni" class="btn">Prenota un Tavolo</a>
     </section>
 
-    <!-- SEZIONE MENU PIZZE -->
     <section id="menu">
         <h2 class="section-title">Le Nostre Pizze</h2>
         <p class="section-subtitle">Impasto a lenta lievitazione naturale, ingredienti della nostra terra</p>
         
         <div class="menu-container">
-            <!-- Classiche -->
             <div class="menu-category">
                 <h3 class="category-title">Le Classiche</h3>
                 
@@ -427,7 +382,6 @@
                 </div>
             </div>
 
-            <!-- Speciali -->
             <div class="menu-category">
                 <h3 class="category-title">Le Speciali di Bruno</h3>
                 
@@ -444,167 +398,4 @@
                         <span class="item-name">La Bronte</span>
                         <span class="item-price">€ 13,00</span>
                     </div>
-                    <p class="item-description">Mortadella Bologna IGP, stracciatella di bufala, pesto e granella di pistacchio.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="item-name">Contadina</span>
-                        <span class="item-price">€ 10,50</span>
-                    </div>
-                    <p class="item-description">Provola affumicata, friarielli saltati, salsiccia fresca artigianale rustica.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEZIONE CARTA DEI VINI -->
-    <section id="vini">
-        <h2 class="section-title">La Carta dei Vini</h2>
-        <p class="section-subtitle">Selezionati appositamente per esaltare i sapori dei nostri impasti</p>
-        
-        <div class="menu-container">
-            <!-- Rossi -->
-            <div class="menu-category">
-                <h3 class="category-title">I Rossi</h3>
-                
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="item-name">Aglianico del Taburno DOCG</span>
-                        <span class="item-price">€ 22,00</span>
-                    </div>
-                    <p class="item-description">Strutturato, perfetto con le pizze a base di carne e formaggi stagionati.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="item-name">Chianti Classico</span>
-                        <span class="item-price">€ 24,00</span>
-                    </div>
-                    <p class="item-description">Note di frutti rossi, fresco e piacevolmente tannico.</p>
-                </div>
-            </div>
-
-            <!-- Bianchi e Bollicine -->
-            <div class="menu-category">
-                <h3 class="category-title">I Bianchi & Bollicine</h3>
-                
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="item-name">Fiano di Avellino DOP</span>
-                        <span class="item-price">€ 20,00</span>
-                    </div>
-                    <p class="item-description">Fresco, minerale, ideale per le nostre pizze bianche e vegetariane.</p>
-                </div>
-
-                <div class="menu-item">
-                    <div class="menu-item-header">
-                        <span class="item-name">Prosecco Valdobbiadene Sup.</span>
-                        <span class="item-price">€ 18,00</span>
-                    </div>
-                    <p class="item-description">Bollicina fine, ottima per iniziare la serata con i nostri fritti.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEZIONE PRENOTAZIONI -->
-    <section id="prenotazioni">
-        <div class="booking-section">
-            <h2 class="section-title">Prenota un Tavolo</h2>
-            <p class="section-subtitle">Assicurati il tuo posto vicino al forno a legna</p>
-            
-            <form class="booking-form" action="https://formsubmit.co/brunoalfonso90@libero.it" method="POST">
-                <div class="form-group">
-                    <label for="name">Nome Completo</label>
-                    <input type="text" id="name" name="Nome" required placeholder="Es. Mario Rossi">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Numero di Telefono</label>
-                    <input type="tel" id="phone" name="Telefono" required placeholder="Es. 333 1234567">
-                </div>
-                <div class="form-group">
-                    <label for="date">Data</label>
-                    <input type="date" id="date" name="Data" required>
-                </div>
-                <div class="form-group">
-                    <label for="time">Orario</label>
-                    <select id="time" name="Orario" required>
-                        <option value="">Seleziona Orario</option>
-                        <option value="19:30">19:30</option>
-                        <option value="20:30">20:30</option>
-                        <option value="21:30">21:30</option>
-                        <option value="22:30">22:30</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Persone</label>
-                    <select id="guests" name="Persone" required>
-                        <option value="2">2 Persone</option>
-                        <option value="3">3 Persone</option>
-                        <option value="4">4 Persone</option>
-                        <option value="5">5+ Persone</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-submit">Verifica Disponibilità</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- SEZIONE CONTATTI -->
-    <section id="contatti">
-        <h2 class="section-title">Dove Trovarci</h2>
-        <p class="section-subtitle">Vieni a respirare il profumo della vera traditione</p>
-        
-        <div class="contact-grid">
-            <div class="contact-info">
-                <h3>Pizzeria Bruno</h3>
-                <p>📍 Via dei Mille, 42 - 80100 Napoli (NA)</p>
-                <p>📞 Telefono: +39 081 555 1234</p>
-                <p>✉️ Email: info@pizzeriabruno.it</p>
-                <br>
-                <h3>I Nostri Orari</h3>
-                <ul class="orari-list">
-                    <li><span>Lunedì</span> <span>Chiuso</span></li>
-                    <li><span>Martedì - Venerdì</span> <span>19:00 - 00:00</span></li>
-                    <li><span>Sabato e Domenica</span> <span>12:30 - 15:00 / 19:00 - 00:30</span></li>
-                </ul>
-            </div>
-            <!-- Mappa Segnaposto con stile rustico -->
-            <div style="background-color: #eee1cd; border-radius: 8px; display: flex; justify-content: center; align-items: center; min-height: 250px; text-align: center; padding: 20px; border: 1px dashed var(--colore-secondario);">
-                <div>
-                    <span style="font-size: 3rem;">🗺️</span>
-                    <h4 style="font-family: var(--font-titoli); margin-top: 10px;">Mappa Interattiva</h4>
-                    <p style="font-size: 0.9rem; color: #555;">(Qui verrà integrata la mappa di Google Maps)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 Pizzeria Bruno. Tutti i diritti riservati. Fatto con ❤️ e Vibe Coding.</p>
-    </footer>
-
-    <!-- INTERATTIVITÀ JAVASCRIPT -->
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-        const menuLinks = document.querySelectorAll('.menu-link');
-
-        // Toggle apertura/chiusura menu
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Chiude il menu quando si clicca un link
-        menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
+                    <p class="item-description">Mortad
